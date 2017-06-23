@@ -2,7 +2,7 @@
 
 - name: Clone template and customize
   vmware_guest:
-    hostname: 192.168.6.10
+    hostname: {{ vc_hostname }}
     username: administrator@vsphere.local
     password: Secret123!
     validate_certs: no
@@ -10,11 +10,12 @@
     folder: /MIQUEL
     cluster: Cluster-EVC
     name: tmp
+    annotation: Created by Ansible
     state: poweredon
     disk:
     - size_gb: 20
       type: thin
-      datastore: FORMACION_R5
+      datastore: FORM01_R5_LUN75
     hardware:
        memory_mb: 4096
        num_cpus: 8
