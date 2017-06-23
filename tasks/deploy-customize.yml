@@ -9,7 +9,7 @@
     datacenter: VDC
     folder: /MIQUEL
     cluster: Cluster-EVC
-    name: tmp
+    name: tmp2
     annotation: Created by Ansible
     state: poweredon
     disk:
