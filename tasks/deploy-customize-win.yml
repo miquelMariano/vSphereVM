@@ -2,14 +2,14 @@
 
 - name: Clone template and customize
   vmware_guest:
-    hostname: {{ vc_hostname }}
-    username: administrator@vsphere.local
-    password: Secret123!
+    hostname: "{{ vc_hostname }}"
+    username: "{{ vc_username }}"
+    password: "{{ vc_password }}"
     validate_certs: no
-    datacenter: VDC
-    folder: /MIQUEL
-    cluster: Cluster-EVC
-    name: tmp2
+    datacenter: "{{ vc_datacenter }}"
+    folder: "{{ vc_folder }}"
+    cluster: "{{ vc_cluster }}"
+    name: "{{ vm_name }}"
     annotation: Created by Ansible
     state: poweredon
     disk:
@@ -23,7 +23,7 @@
     template: miquel-template-W2012R2-Std-ES
     networks:
     - name: VLAN6_Formacion
-      ip: 192.168.6.157
+      ip: "{{ vm_ip}}"
       netmask: 255.255.255.0
       gateway: 192.168.6.1
    #   mac: 'aa:bb:dd:aa:00:14'
