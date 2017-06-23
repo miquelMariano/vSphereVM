@@ -1,0 +1,45 @@
+---
+
+- name: Clone template and customize
+  vmware_guest:
+    hostname: 192.168.6.10
+    username: administrator@vsphere.local
+    password: Secret123!
+    validate_certs: no
+    datacenter: VDC
+    folder: /MIQUEL
+    cluster: Cluster-EVC
+    name: tmp
+    state: poweredon
+    disk:
+    - size_gb: 20
+      type: thin
+      datastore: FORMACION_R5
+    hardware:
+       memory_mb: 4096
+       num_cpus: 8
+       scsi: paravirtual
+    template: miquel-template-W2012R2-Std-ES
+    networks:
+    - name: VLAN6_Formacion
+      ip: 192.168.6.157
+      netmask: 255.255.255.0
+      gateway: 192.168.6.1
+   #   mac: 'aa:bb:dd:aa:00:14'
+  #    domain: ncorafmacion.local
+  #    dns_servers:
+  #    - 192.168.6.100
+  #    - 192.168.6.101
+    customization:
+      autologon: true
+      dns_servers:
+      - 192.168.6.100
+      - 192.168.6.101
+      dns_suffix: ncoraformacion.local
+      domainadmin: administrador@ncoraformacion.local
+      domainadminpassword: Secret123! 
+      domain: ncoraformacion.local
+      password: Secret321!
+  #    runonce:
+  #    - powershell.exe -ExecutionPolicy Unrestricted -File C:\Windows\Temp\Enable-WinRM.ps1 -ForceNewSSLCert
+  delegate_to: localhost

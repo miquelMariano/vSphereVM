@@ -1,0 +1,5 @@
+---
+# tasks file for vSphereVMi
+
+- include: deploy-customize.yml
+  tags: deploy
