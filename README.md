@@ -21,11 +21,31 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yaml
+- hosts: ansible
+  user: root
+  tasks:
+     - name: Ensure that role are up to date
+       command: ansible-galaxy install --force {{ item }}
+       with_items:
+          - miquelMariano.vSphereVM
+       when:
+          - update_mode | default(False)
+       tags: update
+       ignore_errors: yes
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+- hosts: ansible
+  user: root
+  roles:
+     - role: miquelMariano.vSphereVM
+```
+
+Execute playbook
+----------------
+
+```yaml
+ansible-playbook playbooks/common.yml -i inventory/servers --extra-vars "update_mode=true"
+```
 
 License
 -------
