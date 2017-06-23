@@ -1,6 +1,6 @@
 ---
 
-- name: Clone template and customize
+- name: Deploy VM windows from template and customize
   vmware_guest:
     hostname: "{{ vc_hostname }}"
     username: "{{ vc_username }}"
@@ -9,7 +9,7 @@
     datacenter: "{{ vc_datacenter }}"
     folder: "{{ vc_folder }}"
     cluster: "{{ vc_cluster }}"
-    name: "{{ vm_name }}"
+    name: "{{ item.vm_name }}"
     annotation: Created by Ansible
     state: poweredon
     disk:
@@ -23,7 +23,7 @@
     template: miquel-template-W2012R2-Std-ES
     networks:
     - name: VLAN6_Formacion
-      ip: "{{ vm_ip}}"
+      ip: "{{ item.vm_ip }}"
       netmask: 255.255.255.0
       gateway: 192.168.6.1
    #   mac: 'aa:bb:dd:aa:00:14'
@@ -44,3 +44,10 @@
   #    runonce:
   #    - powershell.exe -ExecutionPolicy Unrestricted -File C:\Windows\Temp\Enable-WinRM.ps1 -ForceNewSSLCert
   delegate_to: localhost
+  with_items:
+    - { vm_name: x100, vm_ip: 10.0.0.100 }
+    - { vm_name: x101, vm_ip: 10.0.0.101 }
+    - { vm_name: x102, vm_ip: 10.0.0.102 }
+    - { vm_name: x103, vm_ip: 10.0.0.103 }
+    - { vm_name: x104, vm_ip: 10.0.0.104 }
+    - { vm_name: x105, vm_ip: 10.0.0.105 }
