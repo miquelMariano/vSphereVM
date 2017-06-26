@@ -9,3 +9,7 @@ vc_password: Secret123!
 vc_datacenter: VDC
 vc_folder: /MIQUEL
 vc_cluster: Cluster-EVC
+vc_note: Created by Ansible
+
+vc_datastore: FORM01_R5_LUN75
+

@@ -10,7 +10,7 @@
     folder: "{{ vc_folder }}"
     cluster: "{{ vc_cluster }}"
     name: "{{ item.vm_name }}"
-    annotation: Created by Ansible
+    annotation: "{{ vc_note }}"
     state: poweredon
     disk:
     - size_gb: 20
@@ -44,6 +44,9 @@
   #    runonce:
   #    - powershell.exe -ExecutionPolicy Unrestricted -File C:\Windows\Temp\Enable-WinRM.ps1 -ForceNewSSLCert
   delegate_to: localhost
+##
+##Insert down the variables for each VM to deploy
+##
   with_items:
     - { vm_name: x100, vm_ip: 10.0.0.100 }
     - { vm_name: x101, vm_ip: 10.0.0.101 }
