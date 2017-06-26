@@ -50,7 +50,7 @@ Example Playbook
        tags: update
        ignore_errors: yes
 
-- hosts: ansible
+- hosts: "{{ servers }}"
   user: root
   roles:
      - role: miquelMariano.vSphereVM
@@ -60,7 +60,7 @@ Execute playbook
 ----------------
 
 ```yaml
-ansible-playbook playbooks/vSphereVM.yml -i inventory/servers --e "update_mode=true" --tags=update
+ansible-playbook playbooks/vSphereVM.yml -i inventory/servers --e "servers=linux update_mode=true" --tags=update
 ```
 
 License
