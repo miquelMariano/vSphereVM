@@ -36,7 +36,8 @@
       dns_servers:
       - "{{ item.vm_networkdns1 }}"
       - "{{ item.vm_networkdns2 }}"
-      dns_suffix: "{{ dc_domainadmin }}" #Defined on vars/mail.yml
+      dns_suffix: "{{ dc_domain}}" #Defined on vars/mail.yml
+      joindomain: "{{ dc_domain }}" #Defined on vars/mail.yml
       domainadmin: "{{ dc_domainadmin }}" #Defined on vars/mail.yml
       domainadminpassword: "{{ dc_domainadminpass }}" #Defined on vars/mail.yml
       domain: "{{ dc_domain }}" #Defined on vars/mail.yml
