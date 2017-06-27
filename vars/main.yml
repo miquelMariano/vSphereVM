@@ -6,10 +6,10 @@ vc_hostname: 192.168.6.10
 vc_username: administrator@vsphere.local
 vc_password: Secret123!
 
-vc_datacenter: VDC
-vc_folder: /MIQUEL
-vc_cluster: Cluster-EVC
-vc_note: Created by Ansible
+vm_template: miquel-template-W2012R2-Std-ES
 
-vc_datastore: FORM01_R5_LUN75
+dc_domain: ncoraformacion.local
+dc_domainadmin: administrador@ncoraformacion.local
+dc_domainadminpass: Secret123!
 
+localadminpass: Secret123!
