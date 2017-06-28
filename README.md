@@ -80,7 +80,7 @@ Example Playbook
 Execute playbook
 ----------------
 
-```yaml
+```ssh
 ansible-playbook playbooks/vSphereVM.yml -i inventory/servers -e "update_mode=true" --tags=update
 ```
 
@@ -92,4 +92,4 @@ BSD
 Author Information
 ------------------
 
-[@miquelMariano](https://twitter.com/miquelMariano)
+[miquelMariano.github.io](https://miquelMariano.github.io) | [Twitter](https://twitter.com/miquelMariano)
